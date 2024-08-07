@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud</title>
+
+</head>
+
+<body>
+    <h1>Students Details</h1>
+    <form action="/insertData" method="post">
+        <input type="text" name="id" placeholder="id" required>
+        <input type="text" name="name" placeholder="name" required>
+        <button>Submit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <% student.map((el, i) => { %>
+                    <tr key="<%= i %>">
+                        <td>
+                            <%= el.id %>
+                        </td>
+                        <td>
+                            <%= el.name %>
+                        </td>
+                        <td>
+                            <a href="/deleteData?userid=<%= el.id %>">delete</a>
+                            <a href="/edit?userid=<%= el.id %>">edit</a>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+        </tbody>
+    </table>
+</body>
+
+</html>
